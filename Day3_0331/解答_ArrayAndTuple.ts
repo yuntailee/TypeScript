@@ -17,13 +17,15 @@
 
 // 1. 定義 CartItem 介面
 export interface CartItem {
+  productId:number;
+  quantity:number;
 }
 
 // 2. 定義 Cart 型別 (CartItem 的陣列，可以使用 CartItem[] 或 Array<CartItem>)
-export type Cart = [any]; // 請修改這行
+export type Cart = CartItem[]; // 請修改這行
 
 // 3. 定義 Coordinate 型別 (這是一個 Tuple: [數字, 數字])
-export type Coordinate = [any]; // 請修改這行
+export type Coordinate = [number,number]; // 請修改這行
 
 // -------------------------------------------------------------
 // 👇 第二步：實作你的 Function
@@ -33,6 +35,12 @@ export type Coordinate = [any]; // 請修改這行
 export function getTotalQuantity(cart: Cart): number {
   // 你的實作...
   // 提示：可以使用 array.reduce 或 for 迴圈
+  let i:number=0
+  let num:number=0;
+  for(i;i<cart.length;i++){
+    num+=cart[i].quantity;
+  }
+  return num;
 }
 
 // -------------------------------------------------------------
